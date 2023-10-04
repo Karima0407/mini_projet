@@ -1,0 +1,44 @@
+body{
+    background-color: pink;
+}
+header{
+    background-image: url("../img/istockphoto-1311429608-170667a.jpg");
+    width: 100%;
+    height: 660px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+ul{
+    display: flex;
+
+}
+li{
+    list-style-type: none;
+    padding: 30px;
+}
+.titre{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+h1{
+   text-align: center;
+   font-size: 40px;
+   color: rgb(116, 12, 12);
+}
+
+.invisible{
+    width: 300px;
+}
+a{
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: bolder;
+    font-size: 25px;
+}
+nav a{
+    color: rgb(171, 24, 139);
+}
