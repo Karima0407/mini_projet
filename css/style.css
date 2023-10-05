@@ -1,5 +1,5 @@
 body{
-    background-color: pink;
+    background-color: rgba(255, 192, 203, 0.78);
 }
 header{
     background-image: url("../img/istockphoto-1311429608-170667a.jpg");
@@ -41,4 +41,50 @@ a{
 }
 nav a{
     color: rgb(171, 24, 139);
+}
+.container{
+   width: 50%;
+    
+}
+label{
+    font-weight: bolder;
+    font-size: 20px;
+    color: blueviolet;
+}
+input{
+    width: 40%;
+    padding: 6px;
+    border-radius: 10px;
+}
+button{
+    margin-top: 30px;
+    color: red;
+    padding: 10px;
+    margin-left: 33%;
+}
+section{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+   
+}
+section h2{
+    margin-left: 40px;
+}
+.accouchement{
+    width: 612px;
+    height: 398px;
+}
+table,th,tr,td{
+    border: 2px solid black;
+    border-collapse:collapse;
+    padding: 20px;
+}
+.contacte{
+    color: red;
+    font-size: 20px;
+}
+table{
+    margin: auto;
+    
 }

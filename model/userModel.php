@@ -1,20 +1,20 @@
 <?php
 session_start();
-require_once "../function/function.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/function/function.php';
 class User
 {
 
     // methode pour s'inscrire
-    public static function inscription($role, $name, $phone_number, $email, $password)
+    public static function inscription( $name, $phone_number, $email, $password)
     {
         // connexion a la bd
         $db = Database::dbConnect();
         // preparation de la requete
-        $request = $db->prepare("INSERT INTO users (name,phone_number,email,password,role) VALUES (?,?,?,?,?) ");
+        $request = $db->prepare("INSERT INTO users (name,phone_number,email,password) VALUES (?,?,?,?) ");
 
         // executer la requete
         try {
-            $request->execute(array($name, $phone_number, $email, $password, $role));
+            $request->execute(array($name, $phone_number, $email, $password));
 
 
             // rediriger vers la page login.php
@@ -32,16 +32,23 @@ class User
         // se connecter a la bd
         $db = Database::dbConnect();
         // preparer la requete 
-        $request = $db->prepare("SELECT *FROM users WHERE email=? ");
+        $request = $db->prepare("SELECT * FROM users WHERE email=? ");
         try {
             $request->execute(array($email));
             $user = $request->fetch();
             // verifier si le mot de passe existe
             if (empty($user)) {
                 $_SESSION['error_message'] = "cet email n'existe pas";
+                header("Location:" . $_SERVER['HTTP_REFERER']);
             } else if (password_verify($password, $user['password'])) {
 
                 $_SESSION['error_message'] = "Bienvenue!!";
+                $_SESSION['id_user'] = $user['id_user'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['name'] = $user['name'];
+                $_SESSION['role'] = $user['role'];
+
+                header("Location: http://localhost/mini_projet/list.php");
             } else {
 
                 $_SESSION['error_message'] = "Mot de passe incorrect";

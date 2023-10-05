@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/mini_projet/model/userModel.php';
 // pour l'inscri
 
 if (isset($_POST['inscription'])){
-    $role=htmlspecialchars($_POST['genre']);
+   
     $name=htmlspecialchars($_POST['name']);
     $phone_number = htmlspecialchars($_POST['num_tel']);
     $email=htmlspecialchars($_POST['email']);
@@ -15,7 +15,7 @@ if (isset($_POST['inscription'])){
 
     // appeler la methode inscription de la class User
     // la methode inscription etant static donc on utilise 
-    User::inscription($role,$name,$phone_number,$email,$passwordHash);
+    User::inscription($name,$phone_number,$email,$passwordHash);
 
 
 
