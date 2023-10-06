@@ -12,7 +12,6 @@
 <body>
     <div class="container">
         <form action="./traitement/traitement.php" method="post">
-            
             <div>
                 <label for="">Nom Complet:</label>
                 <div><input type="text" name="name" id=""></div>

@@ -21,13 +21,16 @@ li{
 .titre{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+
+   
 
 }
 h1{
    text-align: center;
    font-size: 40px;
    color: rgb(116, 12, 12);
+   margin-left: 0;
 }
 
 .invisible{
@@ -87,4 +90,34 @@ table,th,tr,td{
 table{
     margin: auto;
     
+}
+.grossesse{
+    background-color: rgb(238, 219, 219);
+    width: 100%;
+   
+}
+
+.grossesse h1{
+    color: red;
+    text-align: left;
+}
+.grossesse h4{
+    font-size: 25px;
+}
+.destroy h1{
+    text-align: center;
+}
+.destroy{
+    display: flex;
+    justify-content: space-around;
+}
+.goodbye img{
+   margin-left: 30%;
+}
+.accouch h3{
+    color: blueviolet;
+    font-size: 33px;
+}
+.accouch  h4{
+    font-size: 25px;
 }

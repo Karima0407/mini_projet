@@ -1,7 +1,6 @@
 <?php
 require_once "./model/userModel.php";
-$listConseiller = User::listConseiller();
-
+$list = User::list();
 
 ?>
 <!DOCTYPE html>
@@ -25,8 +24,6 @@ $listConseiller = User::listConseiller();
             <button name="deconnexion">Deconnexion</button>
         </form>
     </div>
-
-
     <table>
         <thead>
             <tr>
@@ -39,13 +36,18 @@ $listConseiller = User::listConseiller();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($listConseiller as $user) { ?>
+            <?php foreach ($list as $user) { ?>
                 <tr>
-                    <td><?= $user['name']; ?></td>
-                    <td><?= $user['phone_number']; ?></td>
-                    <td><?= $user['email']; ?></td>
-                    <td><a class="contacte" href="message.php?conseiller=<?= $user['id_user']; ?>">Contactez ce conseiller</a></td>
-                <?php } ?>
+                    <?php if ($user["role"] == "maman") { ?>
+
+                        <td><?= $user['name']; ?></td>
+                        <td><?= $user['phone_number']; ?></td>
+                        <td><?= $user['email']; ?></td>
+                        <!-- <td><a class="contacte" href="message.php?conseiller=<?= $user['id_user']; ?>">Contactez ce conseiller</a></td> -->
+                    <?php } else if (($user["role"] == "maman")) { ?>
+                        <?php echo "Désolé cette page est seulement pour les conseillères" ?>
+                    <?php } ?>
                 </tr>
+            <?php } ?>
         </tbody>
     </table>

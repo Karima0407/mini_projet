@@ -42,13 +42,18 @@ class User
                 header("Location:" . $_SERVER['HTTP_REFERER']);
             } else if (password_verify($password, $user['password'])) {
 
-                $_SESSION['error_message'] = "Bienvenue!!";
                 $_SESSION['id_user'] = $user['id_user'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['role'] = $user['role'];
 
+            if($_SESSION["role"] == "maman"){
                 header("Location: http://localhost/mini_projet/list.php");
+            } else{
+                    header("Location: http://localhost/mini_projet/list_maman.php");
+            }
+
+                
             } else {
 
                 $_SESSION['error_message'] = "Mot de passe incorrect";
@@ -65,6 +70,24 @@ class User
         $db = Database::dbConnect();
         // preparer la requete
         $request = $db->prepare("SELECT * FROM users");
+        // executer la requete
+        try {
+            $request->execute();
+            // recuperer le resultat de la requete dans un tableau listPlayer
+
+            $list = $request->fetchAll();
+            return $list;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function listConseiller()
+    {
+        // se connecter a la data base
+        $db = Database::dbConnect();
+        // preparer la requete
+        $request = $db->prepare("SELECT * FROM users where role='conseillere'");
         // executer la requete
         try {
             $request->execute();

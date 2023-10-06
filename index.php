@@ -14,16 +14,20 @@
             <ul>
                 <li><a href="inscri.php">Inscription</a></li>
                 <li><a href="./login.php">Connexion</a></li>
-                <li><a href="./list.php">Liste des Conseillères</a></li>
+                <li><a href="./login.php">Liste des Conseillères</a></li>
+                <li><a href="./login.php">Liste des mamans</a></li>
             </ul>
+            
+            
             <h1>The Baby love</h1>
+            <div class="invisible"></div>
             <div class="invisible"></div>
         </div>
 
         <nav>
             <ul>
-                <li><a href="">Grossesse</a></li>
-                <li><a href="">Accouchement</a></li>
+                <li><a href="./grossesse.php">Grossesse</a></li>
+                <li><a href="./accouchement.php">Accouchement</a></li>
                 <li><a href="">Info Enfant</a></li>
                 <li><a href="">Contactez Nous</a></li>
             </ul>
