@@ -1,23 +1,23 @@
 <?php
-session_start();
+// session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/function/function.php';
 class MessageModel
 {
     // methode pour s'inscrire
-    public static function communication($idMaman, $idConseiller, $message = null)
+    public static function communication($idMaman, $idConseiller, $idSujet, $message)
     {
         // connexion a la bd
         $db = Database::dbConnect();
         // preparation de la requete
-        $request = $db->prepare("INSERT INTO message (id_parent, id_conseiller, date) VALUES (?,?, Now()) ");
+        $request = $db->prepare("INSERT INTO message (id_parent, id_conseiller, id_sujet , date , contenu) VALUES (?,?,?, Now(),?) ");
 
         // executer la requete
         try {
-            $request->execute(array($idMaman, $idConseiller, $message));
+            $request->execute(array($idMaman, $idConseiller, $idSujet,$message));
 
 
             // rediriger vers la page login.php
-            header("Location:http://localhost/mini_projet/message.php");
+            header("Location: http://localhost/mini_projet/list.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

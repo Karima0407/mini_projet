@@ -42,7 +42,7 @@ $listConseiller = User::listConseiller();
             <?php foreach ($listConseiller as $user) { ?>
                 <tr>
                     <td><?= $user['name']; ?></td>
-                    <td><?= $user['phone_number']; ?></td>
+                    <td><?= $user['phone_number']; ?></td> 
                     <td><?= $user['email']; ?></td>
                     <td><a class="contacte" href="message.php?conseiller=<?= $user['id_user']; ?>">Contactez ce conseiller</a></td>
                 <?php } ?>

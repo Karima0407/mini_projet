@@ -19,7 +19,7 @@ $list = User::list();
     <div class="destroy">
         <div class="invisible"></div>
 
-        <h1>Liste de Conseillers:</h1>
+        <h1>Liste des Mamans:</h1>
         <form action="./traitement/traitement.php" method="POST">
             <button name="deconnexion">Deconnexion</button>
         </form>

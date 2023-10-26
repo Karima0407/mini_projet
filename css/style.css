@@ -21,7 +21,8 @@ li{
 .titre{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    margin-left: 0px;
 
    
 
@@ -31,6 +32,13 @@ h1{
    font-size: 40px;
    color: rgb(116, 12, 12);
    margin-left: 0;
+}
+.titre h1{
+     text-align: center;
+   font-size: 40px;
+   color: rgb(116, 12, 12);
+   margin-left: 20px;
+
 }
 
 .invisible{
@@ -69,6 +77,7 @@ section{
     display: flex;
     align-items: center;
     margin-top: 20px;
+    margin-left: 30px;
    
 }
 section h2{
@@ -120,4 +129,68 @@ table{
 }
 .accouch  h4{
     font-size: 25px;
+}
+.fin{
+    display: flex;
+     justify-content: space-around;
+  
+}
+footer{
+    margin-top: 30px;
+    border: 2px solid purple;
+}
+.fin p{
+    font-weight: bolder;
+    font-size: 25px;
+}
+.fin h3{
+    color: rgb(191, 66, 107);
+    font-size: 30px;
+}
+.fin>div{
+    margin-left: 30px;
+}
+.traçage{
+    color: purple;
+    border: 1px solid;
+   
+}
+.traçage2{
+    color: purple;
+    border: 1px solid;
+   
+}
+.commun{
+   margin: auto;
+}
+.commun_image{
+    margin-left: 30%;
+}
+.commun2 h2{
+    color: rgb(180, 25, 25);
+    font-size: 28px;
+}
+.commun2 h4{
+    font-size: 25px;
+}
+.add input{
+    width: 400px;
+    padding: 15px;
+    margin-top: 10px;
+
+   
+}
+.add{
+    display: block;
+}
+.add button{
+    margin-left: 18%;
+}
+.ajouter{
+    text-align: left;
+    font-size: 30px;
+}
+.add label{
+      text-align: left;
+    font-size: 30px;
 }
