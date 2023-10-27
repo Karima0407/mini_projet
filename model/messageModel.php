@@ -3,7 +3,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/function/function.php';
 class MessageModel
 {
-    // methode pour s'inscrire
+   
     public static function communication($idMaman, $idConseiller, $idSujet, $message)
     {
         // connexion a la bd
@@ -13,11 +13,28 @@ class MessageModel
 
         // executer la requete
         try {
-            $request->execute(array($idMaman, $idConseiller, $idSujet,$message));
+            $request->execute(array($idMaman, $idConseiller, $idSujet, $message));
 
 
             // rediriger vers la page login.php
             header("Location: http://localhost/mini_projet/list.php");
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
+    public static function message_maman($id_maman)
+    {
+        // se connecter a la data base
+        $db = Database::dbConnect();
+        // preparer la requete
+        $request = $db->prepare("SELECT * FROM message JOIN sujet ON message.id_sujet = sujet.id_sujet where id_parent= ? ");
+        // executer la requete
+        try {
+            $request->execute(array($id_maman));
+            $message_maman = $request->fetchAll();
+            return $message_maman;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

@@ -36,10 +36,11 @@ class User
         try {
             $request->execute(array($email));
             $user = $request->fetch();
-            // verifier si le mot de passe existe
+            // verifier si l'utilisateur existe
             if (empty($user)) {
                 $_SESSION['error_message'] = "cet email n'existe pas";
                 header("Location:" . $_SERVER['HTTP_REFERER']);
+                // vérifier si le mot de passe est correct
             } else if (password_verify($password, $user['password'])) {
 
                 $_SESSION['id_user'] = $user['id_user'];
@@ -47,7 +48,7 @@ class User
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['role'] = $user['role'];
 
-            if($_SESSION["role"] == "maman"){
+            if($_SESSION["role"] == "ROLE_MAMAN"){
                 header("Location: http://localhost/mini_projet/list.php");
             } else{
                 header("Location: http://localhost/mini_projet/list_maman.php");
@@ -87,7 +88,7 @@ class User
         // se connecter a la data base
         $db = Database::dbConnect();
         // preparer la requete
-        $request = $db->prepare("SELECT * FROM users where role='conseillere'");
+        $request = $db->prepare("SELECT * FROM users where role='ROLE_CONSEILLER'");
         // executer la requete
         try {
             $request->execute();
