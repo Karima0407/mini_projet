@@ -1,8 +1,10 @@
 <?php
 // if (isset($_GET["conseiller"])){
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/model/messageModel.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/model/sujetModel.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/model/messageModel.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/model/sujetModel.php';
+require_once "./model/messageModel.php";
+require_once "./model/sujetModel.php";
 if (isset($_GET["id_conseiller"])) // si l'id de conseillere existe dans l'URL.
 {
     $idConseiller = $_GET["id_conseiller"];

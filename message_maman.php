@@ -28,6 +28,7 @@ $msgmaman = MessageModel::message_maman($maman);
                     <td><?= $maman['text']; ?></td>
                     <td><?= $maman['date']; ?></td>
                     <td><?= $maman['contenu']; ?></td>
+                    <td><a class="contacte" href="reponse_maman.php?id_maman=<?= $maman['id_parent']; ?>">Répondre</a></td>
                 <?php } ?>
                 </tr>
         </table>

@@ -13,8 +13,16 @@ $listConseiller = User::listConseiller();
 
         <h1>Liste de Conseillers:</h1>
         <form action="./traitement/traitement.php" method="post">
-            <button name="deconnexion">Deconnexion</button>
+            <button class="deconexion" name="deconnexion">Deconnexion</button>
+
         </form>
+
+    </div>
+    <div class="recep">
+        <div class="invisible"></div>
+        <div class="invisible"></div>
+        <div class="invisible"></div>
+        <a class="boite_reception" href="">Boite de récéption</a>
     </div>
 
 
