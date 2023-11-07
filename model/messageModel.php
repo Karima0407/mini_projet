@@ -1,6 +1,6 @@
 <?php
-// session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/function/function.php';
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/function/function.php';
 class MessageModel
 {
 
@@ -17,7 +17,7 @@ class MessageModel
 
 
             // rediriger vers la page login.php
-            header("Location: http://localhost/mini_projet/list.php");
+            header("Location: http://mini_projet.com/list.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -45,11 +45,20 @@ class MessageModel
         // se connecter a la data base
         $db = Database::dbConnect();
         // preparer la requete
-        $request = $db->prepare("INSERT INTO message (id_parent, id_conseiller, id_sujet , date , contenu) VALUES (?,?,?, Now(),?) where type= reponse ");
+        $request = $db->prepare("INSERT INTO message (id_parent, id_conseiller, id_sujet , date , contenu) VALUES (?,?,?, Now(),?)");
+
         // executer la requete
         try {
             $request->execute(array($id_maman, $id_conseillere, $idsujet, $reponse));
             $reponse_maman = $request->fetchAll();
+            if ($_SESSION['role'] == 'ROLE_CONSEILLER') {
+                $request = $db->prepare('UPDATE message SET type = "reponse"');
+                try {
+                    $request->execute(array($id_conseillere));
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
+            }
             return $reponse_maman;
         } catch (PDOException $e) {
             echo $e->getMessage();

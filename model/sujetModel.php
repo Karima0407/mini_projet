@@ -1,6 +1,6 @@
 <?php
 // session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/function/function.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/function/function.php';
 class Sujet
 {
 

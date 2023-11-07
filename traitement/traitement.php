@@ -1,10 +1,11 @@
 <?php
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/model/userModel.php';
-require_once __DIR__ . '/../model/userModel.php';
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/model/sujetModel.php';
-require_once __DIR__ . '/../model/sujetModel.php';
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/model/messageModel.php';
-require_once __DIR__ . '/../model/messageModel.php';
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/model/userModel.php';
+// require_once "../model/userModel.php";
+// require_once __DIR__ . '/../model/userModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/model/sujetModel.php';
+// require_once __DIR__ . '/../model/sujetModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/model/messageModel.php';
+// require_once __DIR__ . '/../model/messageModel.php';
 
 // pour l'inscri
 
@@ -38,7 +39,9 @@ if (isset($_POST['login'])) {
 // pour la deconnexion
 if (isset($_POST['deconnexion'])) {
     session_destroy();
-    header("Location: http://localhost/mini_projet/deconnexion.php");
+    // header("Location: http://mini_projet.com/deconnexion.php");
+         header("Location: http://localhost/mini_projet/deconnexion.php");
+
 }
 // pour ajouter un sujet
 
@@ -63,7 +66,7 @@ if (isset($_POST['envoi_reponse'])) {
     $id_maman = htmlspecialchars($_POST["maman"]);
     $id_conseillere = htmlspecialchars($_POST["conseillere"]);
    
-    $idsujet = htmlspecialchars($_POST['id_sujet']);
+    $idsujet = htmlspecialchars($_POST['sujet']);
    $reponse=htmlspecialchars($_POST['answer']);
 
    MessageModel::reponse($id_maman,$id_conseillere, $idsujet, $reponse);

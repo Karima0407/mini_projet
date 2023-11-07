@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/function/function.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/mini_projet/function/function.php';
 class User
 {
 
@@ -49,11 +49,11 @@ class User
                 $_SESSION['role'] = $user['role'];
 
             if($_SESSION["role"] == "ROLE_MAMAN"){
-                // header("Location: http://localhost/mini_projet/list.php");
-                  header("Location: http://mini_projet.com/list.php");
+                header("Location: http://localhost/mini_projet/list.php");
+                //   header("Location: http://mini_projet.com/list.php");
             } else{
-                    // header("Location: http://localhost/mini_projet/list_maman.php");
-                    header("Location: http://mini_projet.com/list_maman.php");
+                    header("Location: http://localhost/mini_projet/list_maman.php");
+                    // header("Location: http://mini_projet.com/list_maman.php");
             }
 
                 
