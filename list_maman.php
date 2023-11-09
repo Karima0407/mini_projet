@@ -1,6 +1,11 @@
 <?php
-include_once ("./inc/header.html.php");
+include_once("./inc/header.html.php");
 require_once "./model/userModel.php";
+
+
+if (isset($_SESSION["salutation"])) {
+    echo "<p>" . $_SESSION["salutation"] . "</p>";
+}
 $list = User::list();
 
 ?>
@@ -43,3 +48,7 @@ $list = User::list();
             <?php } ?>
         </tbody>
     </table>
+
+    <?php
+    include_once "./inc/footer.html.php";
+    ?>

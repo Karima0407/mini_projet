@@ -21,7 +21,7 @@ include_once "./inc/header.html.php";
             </div>
 
             <div>
-                <label for="">Password:</label>
+                <label for="">Mot de passe:</label>
                 <div> <input type="password" name="password" id=""></div>
             </div>
 
@@ -33,3 +33,6 @@ include_once "./inc/header.html.php";
 </body>
 
 </html>
+<?php
+include_once "./inc/footer.html.php";
+?>

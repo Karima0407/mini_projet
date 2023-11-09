@@ -17,7 +17,7 @@ class MessageModel
 
 
             // rediriger vers la page login.php
-            header("Location: http://mini_projet.com/list.php");
+            header("Location: http://localhost/mini_projet/list.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -29,7 +29,7 @@ class MessageModel
         // se connecter a la data base
         $db = Database::dbConnect();
         // preparer la requete
-        $request = $db->prepare("SELECT * FROM message JOIN sujet ON message.id_sujet = sujet.id_sujet where id_parent= ?  ");
+        $request = $db->prepare("SELECT * FROM message JOIN sujet ON message.id_sujet = sujet.id_sujet where message.id_parent= ?  ");
         // executer la requete
         try {
             $request->execute(array($id_maman));
@@ -51,15 +51,23 @@ class MessageModel
         try {
             $request->execute(array($id_maman, $id_conseillere, $idsujet, $reponse));
             $reponse_maman = $request->fetchAll();
-            if ($_SESSION['role'] == 'ROLE_CONSEILLER') {
-                $request = $db->prepare('UPDATE message SET type = "reponse"');
-                try {
-                    $request->execute(array($id_conseillere));
-                } catch (PDOException $e) {
-                    echo $e->getMessage();
-                }
-            }
             return $reponse_maman;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function getReponseConseiller()
+    {
+        // se connecter a la data base
+        $db = Database::dbConnect();
+        // preparer la requete
+        $request = $db->prepare("SELECT * FROM message where type = 'réponse' and id_parent=? ");
+        // executer la requete
+        try {
+            $request->execute([$_SESSION['id_user']]);
+            $message_conseiller = $request->fetchAll();
+            return $message_conseiller;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

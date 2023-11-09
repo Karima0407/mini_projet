@@ -12,6 +12,8 @@ header{
 }
 ul{
     display: flex;
+  
+    
 
 }
 li{
@@ -21,7 +23,7 @@ li{
 .titre{
     display: flex;
     align-items: center;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     margin-left: 0px;
 
    
@@ -33,11 +35,12 @@ h1{
    color: rgb(116, 12, 12);
    margin-left: 0;
 }
-.titre h1{
+.titre2{
      text-align: center;
-   font-size: 40px;
-   color: rgb(116, 12, 12);
-   margin-left: 20px;
+   font-size: 60px;
+   color: rgb(99, 34, 109);
+    font-family: 'Great Vibes', cursive;
+ 
 
 }
 
@@ -48,23 +51,29 @@ a{
     text-decoration: none;
     color: blueviolet;
     font-weight: bolder;
-    font-size: 25px;
+    font-size: 33px;
+   
+}
+a:hover{
+    background-color: pink;
 }
 nav a{
     color: rgb(171, 24, 139);
 }
 .container{
-   width: 50%;
+  margin-left: 33%;
+  margin-top: 40px;
     
 }
 label{
+  
     font-weight: bolder;
     font-size: 20px;
     color: blueviolet;
 }
 input{
     width: 40%;
-    padding: 6px;
+    padding: 10px;
     border-radius: 10px;
 }
 button{
@@ -98,10 +107,11 @@ table,th,tr,td{
 }
 table{
     margin: auto;
+    margin-top: 30px;
     
 }
 .grossesse{
-    background-color: rgb(238, 219, 219);
+   
     width: 100%;
    
 }
@@ -135,9 +145,26 @@ justify-content: space-around;
      justify-content: space-around;
   
 }
+.icones_ftr{
+    margin-left: 20px;
+    font-size: 28px;
+   
+}
+.icones_ftr i{
+    margin: 10px;
+}
 footer{
-    margin-top: 30px;
+    margin-top: 50px;
     border: 2px solid purple;
+}
+.contact_ftr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.contact_ftr  h1{
+    text-align: center;
 }
 .fin p{
     font-weight: bolder;

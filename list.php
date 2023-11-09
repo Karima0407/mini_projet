@@ -1,9 +1,12 @@
 <?php
 include_once "./inc/header.html.php";
 require_once "./model/userModel.php";
+
+if (isset($_SESSION["salutation"])) {
+    echo "<p>" . $_SESSION["salutation"] . "</p>";
+}
+
 $listConseiller = User::listConseiller();
-
-
 ?>
 
 
@@ -22,7 +25,7 @@ $listConseiller = User::listConseiller();
         <div class="invisible"></div>
         <div class="invisible"></div>
         <div class="invisible"></div>
-        <a class="boite_reception" href="">Boite de récéption</a>
+        <a class="boite_reception" href="./boite_reception.php">Boite de récéption</a>
     </div>
 
 
@@ -43,7 +46,7 @@ $listConseiller = User::listConseiller();
                     <td><?= $user['name']; ?></td>
                     <td><?= $user['phone_number']; ?></td>
                     <td><?= $user['email']; ?></td>
-                    <td><a class="contacte" href="message.php?id_conseiller=<?= $user['id_user']; ?>">Contactez ce conseiller</a></td>
+                    <td><a class=" contacte" href="message.php?id_conseiller=<?= $user['id_user']; ?>">Contactez ce conseiller</a></td>
                 <?php } ?>
                 </tr>
         </tbody>

@@ -1,7 +1,11 @@
-<?php session_start(); ?>
 <?php
+
+session_start();
 include_once "./inc/header.html.php";
+
 ?>
+
+
 
 <body>
     <div class="container">
@@ -14,12 +18,14 @@ include_once "./inc/header.html.php";
             </div>
 
             <div>
-                <label for="">Password:</label>
+                <label for="">Mot de passe:</label>
                 <div> <input type="password" name="password" id=""></div>
                 <?php if (isset($_SESSION["error_message"])) { ?>
-                    <p> <?= $_SESSION["error_message"] ?></p>
-                <?php unset($_SESSION["error_message"]);
-                } ?>
+                    <p><?= $_SESSION["error_message"] ?></p>
+
+                <?php } else if (isset($_SESSION['success_message'])) { ?>
+                    <p><?= $_SESSION['success_message'] ?></p>
+                <?php } ?>
             </div>
 
 
@@ -30,3 +36,6 @@ include_once "./inc/header.html.php";
 </body>
 
 </html>
+<?php
+include_once "./inc/footer.html.php";
+?>

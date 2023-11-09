@@ -15,13 +15,9 @@ class User
         // executer la requete
         try {
             $request->execute(array($name, $phone_number, $email, $password));
-
-
-            // rediriger vers la page login.php
-            // header("Location:http://localhost/biblio_poo/views/login");
-
-
-
+            
+            $_SESSION['success_message'] = "Bravo Inscription Réussie!";
+            header("Location: http://localhost/mini_projet/login.php");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -51,9 +47,11 @@ class User
             if($_SESSION["role"] == "ROLE_MAMAN"){
                 header("Location: http://localhost/mini_projet/list.php");
                 //   header("Location: http://mini_projet.com/list.php");
+                $_SESSION['salutation']= 'Bienvenue Chère Maman!';
             } else{
                     header("Location: http://localhost/mini_projet/list_maman.php");
                     // header("Location: http://mini_projet.com/list_maman.php");
+                      $_SESSION['salutation']= 'Bienvenue Chère Conseillère!';
             }
 
                 
