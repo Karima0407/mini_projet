@@ -61,13 +61,18 @@ if (isset($_POST['envoi_message'])) {
 
     MessageModel::communication($id_maman, $id_conseillere, $sujet, $message);
 }
-// pour envoyer la réoponse à la mère:
+// pour envoyer la réponse à la mère:
 if (isset($_POST['envoi_reponse'])) { 
     $id_maman = htmlspecialchars($_POST["maman"]);
     $id_conseillere = htmlspecialchars($_POST["conseillere"]);
    
     $idsujet = htmlspecialchars($_POST['sujet']);
    $reponse=htmlspecialchars($_POST['answer']);
+ 
+
 
    MessageModel::reponse($id_maman,$id_conseillere, $idsujet, $reponse);
+    // header("Location: http://localhost/mini_projet/message_maman.php");
+
+   
 }

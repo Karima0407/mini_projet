@@ -50,8 +50,8 @@ class MessageModel
         // executer la requete
         try {
             $request->execute(array($id_maman, $id_conseillere, $idsujet, $reponse));
-            $reponse_maman = $request->fetchAll();
-            return $reponse_maman;
+            $_SESSION['reponse_success'] = "Message envoyé avec succès";
+            header("Location:" . $_SERVER['HTTP_REFERER']);
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
